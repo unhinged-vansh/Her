@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en" data-theme="velvet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#09070a">
+  <meta name="description" content="A sanctuary of memory, devotion, and unvarnished truth built by Vansh for Prashasti.">
+  
+  <title>Vansh & Prashasti — An Immortal Testament</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748%27 fill=%27%2309070a%27/%3E%3Cpath d=%27M50 12c-20 20-20 38 0 58 20-20 20-38 0-58Zm-29 27c18-6 29 4 29 31-18-5-29-14-29-31Zm58 0c-18-6-29 4-29 31 18-5 29-14 29-31Z%27 fill=%27%23e9bcc8%27/%3E%3Cpath d=%27M50 70v20%27 stroke=%27%23d8b37d%27 stroke-width=%274%27/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Luxury Editorial & Classical Indian Calligraphy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Italianno&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Atmospheric Visual Layers -->
+  <div class="analog-film-noise" aria-hidden="true"></div>
+  <div class="ambient-aurora" aria-hidden="true"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+  <!-- Editorial Top Navigation Header -->
+  <header class="site-nav-header" id="siteNavHeader">
+    <a href="#act-prologue" class="brand-monogram" aria-label="Return to the beginning">
+      <span class="brand-v">V</span>
+      <span class="brand-amp">&</span>
+      <span class="brand-p">P</span>
+    </a>
+
+    <div class="nav-actions">
+      <!-- Atmospheric Mood Toggle -->
+      <button type="button" class="theme-btn" id="themeToggleBtn" aria-label="Toggle atmosphere">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1s1-.45 1-1V3c0-.55-.45-1-1-1zm0 4a3 3 0 0 0-3 3c0 1.66 1.34 3 3 3s3-1.34 3-3a3 3 0 0 0-3-3zm-6 8c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6z"/></svg>
+        <span class="theme-label">Candlelight</span>
+      </button>
+
+      <!-- Music Pill -->
+      <button type="button" class="sound-pill" id="soundHeaderPill" aria-label="Toggle soundtrack">
+        <div class="sound-wave-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <span>Soundtrack</span>
+      </button>
+
+      <!-- Chapter Index Drawer Trigger -->
+      <button type="button" class="index-trigger-btn" id="indexTriggerBtn" aria-expanded="false" aria-controls="chapterIndexDrawer">
+        <span>Index</span>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Slide-Out Chapter Index Drawer -->
+  <aside class="chapter-index-drawer" id="chapterIndexDrawer" aria-hidden="true">
+    <div class="drawer-content">
+      <div class="drawer-top">
+        <span class="chapter-lead-tag" style="margin-bottom: 0;">Table of Chronicles</span>
+        <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close index">✕</button>
+      </div>
+
+      <nav class="drawer-nav-list">
+        <a href="#act-genesis" class="drawer-nav-link">
+          <span class="nav-num">I</span>
+          <span class="nav-title">The Genesis</span>
+          <span class="nav-sub">First sight & April</span>
+        </a>
+        <a href="#act-quiet-hours" class="drawer-nav-link">
+          <span class="nav-num">II</span>
+          <span class="nav-title">The Quiet Hours</span>
+          <span class="nav-sub">03:14 AM & The Bike</span>
+        </a>
+        <a href="#act-alchemy" class="drawer-nav-link">
+          <span class="nav-num">III</span>
+          <span class="nav-title">The Alchemy of You</span>
+          <span class="nav-sub">What you changed</span>
+        </a>
+        <a href="#act-relics" class="drawer-nav-link">
+          <span class="nav-num">IV</span>
+          <span class="nav-title">The Relic Room</span>
+          <span class="nav-sub">The Payal & The Rose</span>
+        </a>
+        <a href="#act-yearning" class="drawer-nav-link">
+          <span class="nav-num">V</span>
+          <span class="nav-title">The Blackout Archive</span>
+          <span class="nav-sub">Shayari & Erasure</span>
+        </a>
+        <a href="#act-sanctuary" class="drawer-nav-link">
+          <span class="nav-num">VI</span>
+          <span class="nav-title">The Sanctuary</span>
+          <span class="nav-sub">The Living Diya</span>
+        </a>
+        <a href="#act-epilogue" class="drawer-nav-link">
+          <span class="nav-num">VII</span>
+          <span class="nav-title">The Unsealed Letter</span>
+          <span class="nav-sub">The Open Question</span>
+        </a>
+      </nav>
+
+      <div class="drawer-bottom">
+        <p class="script-promise" style="font-size: 1.8rem; color: var(--rose-soft); margin-bottom: 6px;">always, your Baby Boy</p>
+        <p style="font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint);">03.04.26 · 09.03.06 · 11.04.26</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ENTRANCE SANCTUARY VEIL -->
+  <div class="entrance-sanctuary-veil" id="entranceVeil">
+    <div class="entrance-card">
+      <div class="botanical-crest" aria-hidden="true">
+        <svg viewBox="0 0 160 160" fill="none">
+          <circle cx="80" cy="80" r="76" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 4"/>
+          <path d="M80 20 C60 45 55 70 80 100 C105 70 100 45 80 20 Z" fill="currentColor" opacity=".18"/>
+          <path d="M80 20 C70 50 70 75 80 100 C90 75 90 50 80 20 Z" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M30 50 C50 42 72 58 80 100 C50 92 30 75 30 50 Z" fill="currentColor" opacity=".12"/>
+          <path d="M130 50 C110 42 88 58 80 100 C110 92 130 75 130 50 Z" fill="currentColor" opacity=".12"/>
+          <path d="M80 100 V145" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="80" cy="100" r="3.5" fill="var(--gold)"/>
+        </svg>
+      </div>
+
+      <p class="entrance-eyebrow">for the girl with the brown eyes</p>
+      <h1 class="entrance-headline">Prashasti</h1>
+      <p class="entrance-script-lead">come a little closer.</p>
+      
+      <button type="button" class="enter-sanctuary-btn" id="enterSanctuaryBtn">
+        <span>Step Inside Our World</span>
+        <span aria-hidden="true">↗</span>
+      </button>
+      
+      <p class="entrance-whisper">best experienced with sound on · a quiet sanctuary built for you</p>
+    </div>
+  </div>
+
+  <!-- MAIN SCROLLYTELLING NARRATIVE -->
+  <main id="mainStoryFlow">
+
+    <!-- PROLOGUE -->
+    <section class="story-chapter chapter-hero" id="act-prologue">
+      <span class="chapter-lead-tag">prologue · sacred ground</span>
+      <h1 class="display-title">
+        I met you because I needed help.<br>
+        <em>I stayed because I found home.</em>
+      </h1>
+      <p class="display-lede">
+        I went to ask whether you could write my projects because I was in a difficult position that year. I did not walk in expecting the beginning of a love story. I just looked at you — and my mind went blank. You were so ethereal that every sentence I had prepared seemed suddenly useless.
+      </p>
+
+      <!-- Key Sacred Pillars -->
+      <div class="milestones-deck">
+        <article class="milestone-pillar">
+          <span class="pillar-date">03 · 04 · 26</span>
+          <span class="pillar-tag">our anniversary</span>
+          <p class="pillar-note">The day our story became real. When the word forever stopped being an abstract thought and finally had your face.</p>
+        </article>
+
+        <article class="milestone-pillar">
+          <span class="pillar-date">11 · 04 · 26</span>
+          <span class="pillar-tag">the day you came to meet me</span>
+          <p class="pillar-note">11th April. You arrived, stepped off the bike, your brown eyes met mine, and my memory decided that everything before that moment had just been waiting.</p>
+        </article>
+
+        <article class="milestone-pillar">
+          <span class="pillar-date">09 · 03 · 06</span>
+          <span class="pillar-tag">the day my bubu arrived</span>
+          <p class="pillar-note">March 9th — the day the kindest heart in the universe was born to bring grace into an otherwise loud world.</p>
+        </article>
+
+        <article class="milestone-pillar">
+          <span class="pillar-date">5'6 · brown eyes</span>
+          <span class="pillar-tag">two details never quite fair</span>
+          <p class="pillar-note">Those brown eyes could calm an entire storm in my chest. One look was always all it ever took.</p>
+        </article>
+      </div>
+    </section>
+
+        <!-- ACT I: THE CARTOGRAPHY OF MEMORY -->
+    <section class="story-chapter" id="act-genesis">
+      <span class="chapter-lead-tag">act i · the origin</span>
+      <h2 class="display-title">The ordinary things<br><em>became sacred.</em></h2>
+      <p class="display-lede">
+        I thought you were way out of my league, so I kept the feeling quiet. And then, somehow, that quiet transformed into late calls, private jokes, city nights, and a thousand tiny moments.
+      </p>
+
+      <!-- THE LENS OF FORGETTING & REMEMBERING (INTERACTIVE FOCUS SLAB) -->
+      <div class="interactive-memory-lens" id="interactiveMemoryLens" role="region" aria-label="Interactive Focus on Memory">
+        <div class="lens-header">
+          <span class="slab-tag">the anatomy of memory · touch to bring into focus</span>
+          <span class="lens-status-pill" id="lensStatusPill">diffused in memory</span>
+        </div>
+        
+        <div class="lens-poem-lines" id="lensPoemLines">
+          <div class="blur-line" data-level="1">I remember your face <span class="dash">—</span> <em class="fade-word">I watch it become blurred.</em></div>
+          <div class="blur-line" data-level="2">I close my eyes to find you <span class="dash">—</span> <em class="fade-word">I search for what is missing.</em></div>
+          <div class="blur-line" data-level="3">I keep your smile alive <span class="dash">—</span> <em class="fade-word">I lose the shape of it.</em></div>
+          <div class="blur-line" data-level="4">I repeat your name <span class="dash">—</span> <em class="fade-word">I forgot how it felt to say it.</em></div>
+          <div class="blur-line" data-level="5">I protect every memory <span class="dash">—</span> <em class="fade-word">time quietly takes them away.</em></div>
+          <div class="blur-line final-focus" data-level="6">One day, I'll forget your face <span class="dash">→</span> <strong class="gold-truth">and I'd die to remember.</strong></div>
+        </div>
+
+        <div class="lens-control-bar">
+          <span class="lens-tip">hover or drag across to focus the memory</span>
+          <input type="range" min="0" max="100" value="30" class="lens-focus-slider" id="lensFocusSlider" aria-label="Focus slider for memory clarity">
+        </div>
+      </div>
+
+      <!-- THE FIVE SENSORY STATIONS -->
+      <div class="sensory-stations-grid">
+        <!-- Station 1 -->
+        <article class="sensory-station-card">
+          <div class="station-meta">
+            <span class="station-num">I</span>
+            <span class="station-sense">First Sight</span>
+          </div>
+          <h3 class="station-title">I came asking for help.</h3>
+          <p class="station-narrative">I remember the reason I came. I remember the year being difficult. I remember needing someone to help me with my projects. And I remember seeing you. That was it. Somewhere between the question I had come to ask and the answer I was waiting for, I fell in love with you and then immediately convinced myself I had no business doing so.</p>
+          <span class="station-footer-mark">THE FIRST CONVERSATION</span>
+        </article>
+
+        <!-- Station 2 -->
+        <article class="sensory-station-card">
+          <div class="station-meta">
+            <span class="station-num">II</span>
+            <span class="station-sense">Sound & Solitude</span>
+          </div>
+          <h3 class="station-title">03:14 AM on the Phone</h3>
+          <p class="station-narrative">Someone falling asleep on a phone call while you stay awake in the pitch dark, holding your breath for four hours straight just so you don't make a sound to disturb her rest.</p>
+          <span class="station-footer-mark">MIDNIGHT · 03:14 AM IST</span>
+        </article>
+
+        <!-- Station 3 -->
+        <article class="sensory-station-card">
+          <div class="station-meta">
+            <span class="station-num">III</span>
+            <span class="station-sense">Your Bike</span>
+          </div>
+          <h3 class="station-title">The Three Rides</h3>
+          <p class="station-narrative">We went out on your bike — once in the afternoon, once in the evening, and once to get your laptop customised. Being beside you turned the journey into the destination.</p>
+          <span class="station-footer-mark">AFTERNOON · EVENING · CUSTOMISING YOUR LAPTOP</span>
+        </article>
+
+        <!-- Station 4 -->
+        <article class="sensory-station-card">
+          <div class="station-meta">
+            <span class="station-num">IV</span>
+            <span class="station-sense">11 April</span>
+          </div>
+          <h3 class="station-title">The Day You Came to Meet Me</h3>
+          <p class="station-narrative">11th April. I had imagined that day, which meant I had imagined what I would say. Then you actually arrived, and the beauty of you was so immediate, so ethereal, that my mind simply stopped cooperating. Sometimes love is not the speech you prepared. Sometimes it is the complete absence of words.</p>
+          <span class="station-footer-mark">11 APRIL 2026</span>
+        </article>
+
+        <!-- Station 5 -->
+        <article class="sensory-station-card full-station">
+          <div class="station-meta">
+            <span class="station-num">V</span>
+            <span class="station-sense">Dialect & Private Language</span>
+          </div>
+          <h3 class="station-title">The Words Nobody Else Heard</h3>
+          <p class="station-narrative">The running joke of hating your dog because he sat closer to you than I could. Your roommates kind of loving me. The private lexicon of Maalkin, Madame, Princess, Darling, Sweetie — and yours for me, Baby Boy. Two sides of a dialect only two people in the world understood.</p>
+          <span class="station-footer-mark">A PRIVATE UNIVERSE · TWO VOICES</span>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ACT II: THE QUIET HOURS -->
+    <section class="story-chapter" id="act-quiet-hours">
+      <span class="chapter-lead-tag">act ii · the midnight hours</span>
+      <h2 class="display-title">The world went quiet.<br><em>We stayed on call.</em></h2>
+      <p class="display-lede">
+        There were nights when nothing needed solving. A voice. A pause. A reel sent at exactly the right moment. The kind of conversation nobody else would remember, except those were the hours I wanted to keep forever.
+      </p>
+
+      <!-- Interactive 03:14 AM Call Terminal -->
+      <div class="terminal-call-box" id="terminalCallBox">
+        <div class="terminal-top-status">
+          <span>Encrypted Line · Sacred Confidence</span>
+          <span>03:14 AM IST</span>
+        </div>
+        <div class="terminal-avatar-wrapper">
+          <div class="avatar-pulse-waves"></div>
+          <div class="avatar-inner-circle">P</div>
+        </div>
+        <h3 class="terminal-caller-name">Prashasti</h3>
+        <p class="terminal-caller-state">sound asleep on the other end of the line...</p>
+        <div class="waveform-bars-holder" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p class="call-timer-display">Connected: 04:18:22</p>
+        <p class="terminal-call-whisper">“I was scared to make even a sound because I didn't want to wake you. I stayed awake for four hours just to protect the quiet.”</p>
+      </div>
+
+      <!-- Dog Rivalry & Nicknames -->
+      <div class="relics-grid" style="margin-top: 30px;">
+        <article class="relic-card">
+          <span class="slab-tag">our most ridiculous rivalry</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--ink); margin: 10px 0;">I hated your dog.</h3>
+          <p style="color: var(--ink-muted);">I hated him because he was closer to you than I was. That was the joke. Which also meant it was a very embarrassing confession disguised as one. And then your roommates somehow kind of loved me anyway. I had accidentally acquired a whole universe in your orbit.</p>
+        </article>
+
+        <article class="relic-card">
+          <span class="slab-tag">the private language</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--ink); margin: 10px 0;">The names only we used.</h3>
+          <p style="color: var(--ink-muted);">There is a strange kind of intimacy in being renamed by someone you love. Inside one voice, you become something softer.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+            <span style="padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 0.8rem; color: var(--gold-soft);">Maalkin</span>
+            <span style="padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 0.8rem; color: var(--gold-soft);">Madame</span>
+            <span style="padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 0.8rem; color: var(--gold-soft);">Princess</span>
+            <span style="padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 0.8rem; color: var(--gold-soft);">Darling</span>
+            <span style="padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 0.8rem; color: var(--gold-soft);">Sweetie</span>
+            <span style="padding: 6px 14px; border-radius: 999px; border: 1px solid var(--rose); background: rgba(214, 148, 165, 0.1); font-size: 0.8rem; color: var(--rose-soft);">Baby Boy</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACT III: THE ALCHEMY OF YOU -->
+    <section class="story-chapter" id="act-alchemy">
+      <span class="chapter-lead-tag">act iii · the transformation</span>
+      <h2 class="display-title">You never asked me to be better.<br><em>You simply made me want to.</em></h2>
+      <p class="display-lede">
+        This is the chapter about the version of me that existed before you, the version you quietly changed, and the things I noticed long before I knew how to say them properly.
+      </p>
+
+      <div class="relics-grid">
+        <article class="relic-card full-width">
+          <span class="slab-tag">the origin of words</span>
+          <h3 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold-soft); margin: 12px 0;">You made a writer out of me without ever asking me to write.</h3>
+          <p style="font-size: 1.15rem; color: var(--ink-muted); line-height: 1.85;">
+            You simply came into my life, and suddenly, I had things worth saying — feelings too beautiful to keep quiet.<br><br>
+            Before you, words were only words. Sentences were only sentences. And poetry was something I admired from a distance. Then there was you. And somehow, every thought began looking for a prettier way to reach you.<br><br>
+            I wrote about your smile when I couldn't stop thinking about it. I wrote about your voice when I missed hearing it. I wrote about the little things you probably never realized I had memorized. You gave me a reason to reach for my pen when I had nothing to say. And in return, I turned you into poetry. Not because you needed to be made beautiful — but because you already were.
+          </p>
+        </article>
+
+        <article class="relic-card">
+          <span class="slab-tag">insomnia</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--ink); margin: 10px 0;">I realized I didn't have insomnia.</h3>
+          <p style="color: var(--ink-muted);">I just had a lack of love. The quiet got louder when there was nobody to tell about the day. And sometimes closing my eyes felt less like sleep and more like uncertainty — what if, when I close them, there will be no you in it at all?</p>
+        </article>
+
+        <article class="relic-card">
+          <span class="slab-tag">strength</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--ink); margin: 10px 0;">I measured the wrong kind of strong.</h3>
+          <p style="color: var(--ink-muted);">I used to think strength looked like heavy lifts, long days, controlled emotions, and simply pushing through. Then I met someone who walks gently through other people's pain. Turns out, I had been measuring the wrong kind of strong all along.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACT IV: THE RELIC ROOM -->
+    <section class="story-chapter" id="act-relics">
+      <span class="chapter-lead-tag">act iv · keepsakes & relics</span>
+      <h2 class="display-title">A museum of<br><em>unbroken things.</em></h2>
+      <p class="display-lede">
+        Tangible echoes that carry the weight of memory across the silence.
+      </p>
+
+      <div class="relics-grid">
+        <!-- Interactive Silver Payal Card -->
+        <article class="relic-card full-width" style="background: radial-gradient(circle at 20% 50%, rgba(223, 176, 114, 0.1), transparent 70%), var(--bg-card);">
+          <div class="payal-interactive-module">
+            <div class="payal-chime-target" id="payalChimeTarget" role="button" tabindex="0" aria-label="Touch the silver anklet to hear its chimes">
+              <svg viewBox="0 0 160 160" width="130" height="130" fill="none">
+                <circle cx="80" cy="80" r="56" stroke="#d5c8ba" stroke-width="3" stroke-dasharray="3 4"/>
+                <circle cx="80" cy="80" r="56" stroke="#c8a265" stroke-width="1.2" opacity=".6"/>
+                <circle cx="80" cy="24" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+                <circle cx="124" cy="46" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+                <circle cx="136" cy="80" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+                <circle cx="124" cy="114" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+                <circle cx="80" cy="136" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+                <circle cx="36" cy="114" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+                <circle cx="24" cy="80" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+                <circle cx="36" cy="46" r="6.5" fill="#f7f2ea" stroke="#94857b" stroke-width="1.5"/>
+              </svg>
+              <span class="payal-touch-cue">touch the silver bells ✦</span>
+            </div>
+            <div>
+              <span class="slab-tag">sacred gift · the acoustic heirloom</span>
+              <h3 class="hindi-display">मैं तोहफ़े में उसे पायल दे आया...</h3>
+              <p class="display-lede" style="color: var(--gold-soft); margin-bottom: 12px;">...अब वो चलेगी तो मेरा इश्क़ गूँजेगा।</p>
+              <p style="color: var(--ink-muted); font-size: 1.05rem;">Every step you take in this world carries the quiet resonance of a love that asked for nothing except your peace.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- The Single Rose -->
+        <article class="relic-card">
+          <span class="slab-tag">the botanical relic</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--ink); margin: 10px 0;">The rose that survived the flood.</h3>
+          <p style="color: var(--ink-muted); line-height: 1.75;">“She was the one rose in the garden that wasn't wiped out by the flood. The one icicle that didn't melt when spring came early. When I am surrounded by roses around me, I look for you: my favourite sunflower, my lily.”</p>
+        </article>
+
+        <!-- The Coffee Mornings -->
+        <article class="relic-card">
+          <span class="slab-tag">what i want</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--ink); margin: 10px 0;">Ordinary, beautiful days.</h3>
+          <p style="color: var(--ink-muted); line-height: 1.75;">“Pouring our coffee in the mornings with sleepy bed hair and morning-breath kisses. Watching movies for the 100th time, taking long drives, laughing at nothing. It was never just about wanting you near me. It was about wanting a life with you.”</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACT V: THE SACRED YEARNING & BLACKOUT ARCHIVE -->
+    <section class="story-chapter" id="act-yearning">
+      <span class="chapter-lead-tag">act v · the unvarnished archive</span>
+      <h2 class="display-title">The words that<br><em>survive the silence.</em></h2>
+      <p class="display-lede">
+        Some feelings do not arrive as polite declarations. They live in eye contact, in old reels, in Ghazals, and in lines stripped down to their burning core.
+      </p>
+
+      <!-- Classical Verses -->
+      <div class="relics-grid">
+        <article class="relic-card full-width" style="text-align: center;">
+          <p class="urdu-display">چلو نا، سب بھول کر پھر سے ایک ہو جاتے ہیں...</p>
+          <h3 class="hindi-display" style="font-size: 2.4rem;">आओ ना सुलह करते हैं... मैं क़ुबूल करता हूँ मेरी सारी गलतियाँ।</h3>
+          <p class="display-lede" style="margin: 0 auto; max-width: 45ch; color: var(--gold-soft);">“Come on, let's just forget everything and be ‘us’ again.”</p>
+        </article>
+
+        <article class="relic-card">
+          <span class="slab-tag">जीत</span>
+          <h3 class="hindi-display" style="font-size: 1.9rem;">उसका मिल जाना,<br>मेरे लिए दुनिया जीतने के बराबर है।</h3>
+          <p style="color: var(--ink-muted);">There are people you meet. And then there are people whose presence makes the entire world feel won.</p>
+        </article>
+
+        <article class="relic-card">
+          <span class="slab-tag">तुम प्रेम हो</span>
+          <h3 class="hindi-display" style="font-size: 1.9rem;">तुम प्रेम हो मेरा, तुम्हें त्यागना असंभव है मेरे लिए...</h3>
+          <p style="color: var(--ink-muted);">...कभी देखा है भक्त को भगवान बदलते हुए?</p>
+        </article>
+
+        <article class="relic-card">
+          <span class="slab-tag">नसीब</span>
+          <h3 class="hindi-display" style="font-size: 1.9rem;">३३ कोटि देवी देवताओं में से...</h3>
+          <p style="color: var(--ink-muted);">...किसी की भी क़लम नहीं उठी उसे मेरे नसीब में लिखने के लिए??</p>
+        </article>
+
+        <article class="relic-card">
+          <span class="slab-tag">रात भर</span>
+          <h3 class="hindi-display" style="font-size: 1.9rem;">रात भर तारीफ़ करते रहे आपकी चाँद से...</h3>
+          <p style="color: var(--ink-muted);">...कम्बख़्त चाँद भी इतना जला कि सुबह तक सूरज हो गया।</p>
+        </article>
+      </div>
+
+      <!-- Blackout / Erasure Poetry Installation -->
+      <div class="erasure-installation">
+        <span class="chapter-lead-tag" style="margin-top: 40px;">interactive blackout poetry · tap any card to strip the ink</span>
+        
+        <div class="erasure-deck">
+          <!-- Erasure 1 -->
+          <article class="erasure-slab" data-stripped="false">
+            <div class="slab-header">
+              <span class="slab-tag">at seventy</span>
+              <button type="button" class="strip-btn">strip to the bone ✦</button>
+            </div>
+            <div class="slab-verse">
+              <span class="c">When I am seventy</span> <span class="m">with dementia eating my mind,</span>
+              <span class="c">I will</span> <span class="m">still</span> <span class="c">remember how</span>
+              <span class="m">sweetly your lips moved and how innocent</span>
+              <span class="c">your eyes looked</span> <span class="m">like you just landed from heaven.</span>
+            </div>
+            <p class="slab-unmasked-truth">Subtext: <em>“When I am seventy, I will remember how your eyes looked.”</em></p>
+          </article>
+
+          <!-- Erasure 2 -->
+          <article class="erasure-slab" data-stripped="false">
+            <div class="slab-header">
+              <span class="slab-tag">blood & bone</span>
+              <button type="button" class="strip-btn">strip to the bone ✦</button>
+            </div>
+            <div class="slab-verse">
+              <span class="m">When I am on my death bed coughing</span>
+              <span class="c">nothing but blood I will tell you how beautiful you looked</span>
+              <span class="m">when I was</span> <span class="c">a young teen.</span>
+            </div>
+            <p class="slab-unmasked-truth">Subtext: <em>“When I am nothing but blood, I will tell you how beautiful you looked.”</em></p>
+          </article>
+
+          <!-- Erasure 3: The Sky -->
+          <article class="erasure-slab full" data-stripped="false">
+            <div class="slab-header">
+              <span class="slab-tag">the disappearing sky</span>
+              <button type="button" class="strip-btn">strip to the bone ✦</button>
+            </div>
+            <div class="slab-verse" style="display: flex; flex-direction: column; gap: 8px;">
+              <span>The sky doesn't look the same anymore; <span class="m">it lost its blue when you left.</span></span>
+              <span><span class="c">I lost when you left.</span></span>
+              <span><span class="m">The sky lost its blue.</span></span>
+              <span><span class="c">I lost you. You left me.</span></span>
+              <span><span class="m">You look the same.</span></span>
+              <span style="font-style: italic; color: var(--gold-soft); font-size: 1.2em;"><span class="c">You don’t look at me anymore.</span></span>
+            </div>
+            <p class="slab-unmasked-truth">Subtext: <em>“I lost when you left... You don't look at me anymore.”</em></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACT VI: THE SANCTUARY & THE LIVING DIYA -->
+    <section class="story-chapter" id="act-sanctuary">
+      <span class="chapter-lead-tag">act vi · the promises</span>
+      <h2 class="display-title">Some promises are loud.<br><em>Ours were made quietly.</em></h2>
+      <p class="display-lede">
+        A promise is not an expectation placed upon you; it is simply where I choose to stand, even when the night grows cold.
+      </p>
+
+      <!-- Living Terracotta Diya Chamber -->
+      <div class="diya-sanctuary-chamber">
+        <div class="diya-altar-target" id="diyaAltarTarget" role="button" tabindex="0" aria-label="Touch the flame of the Diya">
+          <div class="diya-halo-glow"></div>
+          <svg viewBox="0 0 120 160" width="110" height="145" fill="none">
+            <path d="M20 120 C20 145 100 145 100 120 C95 110 25 110 20 120 Z" fill="#6d3929" stroke="#94533f" stroke-width="1.5"/>
+            <ellipse cx="60" cy="115" rx="38" ry="8" fill="#442116" stroke="#c8a265" stroke-width="1" opacity=".7"/>
+            <line x1="60" y1="113" x2="60" y2="92" stroke="#1d120c" stroke-width="2.5" stroke-linecap="round"/>
+            <g class="flame-body-motion">
+              <path d="M60 40 C45 68 46 88 60 92 C74 88 75 68 60 40 Z" fill="url(#flameOuter)"/>
+              <path d="M60 60 C52 74 54 87 60 90 C66 87 68 74 60 60 Z" fill="url(#flameInner)"/>
+            </g>
+            <defs>
+              <radialGradient id="flameOuter" cx="50%" cy="75%" r="50%">
+                <stop offset="0%" stop-color="#fff1b8"/>
+                <stop offset="45%" stop-color="#ff9e3b"/>
+                <stop offset="90%" stop-color="#d63031" stop-opacity=".7"/>
+                <stop offset="100%" stop-color="#d63031" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="flameInner" cx="50%" cy="80%" r="50%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="60%" stop-color="#ffec99"/>
+                <stop offset="100%" stop-color="#ffa94d"/>
+              </radialGradient>
+            </defs>
+          </svg>
+          <span class="diya-whisper-tag">touch the flame ✦</span>
+        </div>
+
+        <div class="diya-narrative">
+          <p class="script-promise">“I won’t confess that I waited…”</p>
+          <h3 class="main-promise">“…but I let the lamp burn a little longer.”</h3>
+          <p class="body-promise">
+            He would fight to protect her peace no matter what occurred from this point forward. Why? Because she deserves it. Why? Because he loves her.<br><br>
+            Take all the time you need... If we are written the way I believe, time will eventually grow ashamed of keeping us apart.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACT VII: THE UNSEALED LETTER & THE OPEN QUESTION -->
+    <section class="story-chapter" id="act-epilogue">
+      <span class="chapter-lead-tag">act vii · epilogue</span>
+      <h2 class="display-title">The things too raw<br><em>to leave unsaid.</em></h2>
+      
+      <!-- Interactive 3D Wax-Sealed Letter -->
+      <div class="envelope-sanctuary-box">
+        <div class="vintage-envelope-mock" id="vintageEnvelopeMock">
+          <button type="button" class="wax-seal-button" id="waxSealButton" aria-label="Break the wax seal to read the handwritten letter">
+            <span class="wax-monogram">V&P</span>
+          </button>
+          <p class="seal-cue-text">tap the wax seal to open this letter</p>
+
+          <div class="unfolded-parchment-letter">
+            <span class="letter-date-stamp">written in the quiet of midnight</span>
+            <h3 class="letter-salutation">Baby,</h3>
+            <p class="letter-body-copy">
+              I write because you return to me like a soft light breaking through the dark. You were my rainbow in the night, a fleeting glow I never learned to hold.<br><br>
+              I find you in the pages of my memories, in every silent corner of my thoughts. You drift into my mind without warning, like wind through an open window. In the garden of my solitude, I would leave a flower for you — a fragile bloom carrying your name.<br><br>
+              <em>Tell me… will you come find me when I am gone? Or will you reach for my hand again and lead me somewhere beyond this world, just as you once did?</em><br><br>
+              I miss you in ways words cannot carry. But I believe one day soon, we will sit together again… and we will laugh like nothing was ever lost.
+            </p>
+            <p class="letter-signature">Yours always, Baby Boy</p>
+            <button type="button" class="fold-back-action" id="foldBackAction">fold this letter back into the envelope</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Letterpress RSVP Sanctuary (The Ask) -->
+      <div class="final-rsvp-sanctuary">
+        <div class="rsvp-deckle-accent"></div>
+        <span class="slab-tag" style="color: var(--gold);">the honest question</span>
+        <h3 class="rsvp-headline">Can I have another chance?</h3>
+        <p class="rsvp-message">
+          Not because a website can repair a relationship. It can't. Not because pretty words erase what hurt. They don't. I am asking because what we had mattered to me in a hundred small ways, and I still believe something worth loving deserves one honest question.<br><br>
+          I don't wanna be your annoying ex that texts you all the time after the break up. I just wanna be your baby again. I wish we could just sit down together, forgive each other for our mistakes, and realise that we were just kids learning how to love.
+        </p>
+
+        <div class="rsvp-touchpoints">
+          <a href="https://api.whatsapp.com/send?text=Hey%20Vansh,%20I%20read%20it." target="_blank" rel="noopener noreferrer" class="rsvp-action-link whatsapp">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.8 14.18c-.24.68-1.2 1.26-1.68 1.33-.46.07-1.04.1-3.02-.73-2.54-1.05-4.18-3.64-4.31-3.81-.13-.17-1.03-1.37-1.03-2.62s.65-1.86.88-2.11c.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.17.01.39-.06.6.45.24.57.81 1.98.88 2.13.07.14.12.31.02.5-.09.18-.14.3-.28.46-.14.16-.3.35-.43.47-.14.14-.29.3-.12.59.16.28.73 1.2 1.56 1.94 1.07.96 1.98 1.25 2.26 1.39.28.14.45.12.61-.07.17-.19.72-.84.91-1.13.19-.28.38-.24.64-.14.26.09 1.66.78 1.94.92.28.14.47.21.54.33.07.11.07.69-.17 1.37z"/></svg>
+            <span>Send a quiet whisper on WhatsApp</span>
+          </a>
+
+          <button type="button" class="rsvp-action-link copy-note" id="copyGentleNoteBtn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <span id="copyBtnText">Keep a note in your pocket</span>
+          </button>
+        </div>
+
+        <p class="rsvp-closing-motto">“Whatever your answer, thank you for being one of the most beautiful chapters of my life.”</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- HIDDEN AUDIO ENGINES -->
+  <div class="audio-engine" aria-hidden="true" style="position:fixed;left:-1000px;width:1px;height:1px;overflow:hidden;">
+    <div id="yt-player"></div>
+  </div>
+
+  <!-- FLOATING MINIATURE VINYL TURNTABLE DOCK -->
+  <aside class="analog-turntable-dock" id="analogTurntableDock" aria-label="Soundtrack player">
+    <div class="turntable-record-target" id="turntableRecordTarget" role="button" tabindex="0" aria-label="Play or pause vinyl player">
+      <div class="vinyl-micro-disc">
+        <span class="vinyl-label-crest">V&P</span>
+      </div>
+      <div class="vinyl-needle-lever"></div>
+    </div>
+
+    <div class="dock-meta-info">
+      <div class="dock-track-title">
+        <span>Khat</span>
+        <span style="opacity: 0.5;">·</span>
+        <span class="dock-artist-name">Navjot Ahuja</span>
+      </div>
+      <div class="dock-time-status">
+        <span id="dockCurrentTime">0:00</span>
+        <span>/</span>
+        <span id="dockDuration">3:15</span>
+      </div>
+    </div>
+
+    <div class="dock-control-tools">
+      <button type="button" class="dock-tool-btn" id="dockMuteBtn" aria-label="Mute or unmute">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </button>
+      <button type="button" class="dock-tool-btn" id="dockAmbientBtn" title="Switch to ambient rain & chords">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM11 16.5v3.5h2v-3.5h-2zm-4 0v3.5h2v-3.5H7zm8 0v3.5h2v-3.5h-2z"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOAST FEEDBACK -->
+  <div class="immortal-toast" id="immortalToast" role="status" aria-live="polite"></div>
+
+  <script src="assets/engine.js"></script>
+</body>
+</html>
